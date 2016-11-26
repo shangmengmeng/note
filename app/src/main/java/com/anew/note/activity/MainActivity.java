@@ -15,20 +15,36 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anew.note.R;
+import com.anew.note.model.TipModel;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private ImageView imageView;
     private AppBarLayout appBarLayout;
-    private TextView text_blakborad,text_show,text_add,text_check;
+    private TextView text_blakborad, text_show, text_add, text_check;
     private NavigationView navigationView;
+    private TipModel nData;
+    private int from;
+    private final static int FROM_ADD = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getData();
         initView();
+        setData();
     }
+
+
+
+    public void getData() {
+        if (getIntent().getSerializableExtra("AddActivity") != null) {
+            nData = (TipModel) getIntent().getSerializableExtra("AddActivity");
+            from = FROM_ADD;
+        }
+    }
+
     private void initView() {
         navigationView = (NavigationView) findViewById(R.id.slide_menu);
         imageView = (ImageView) findViewById(R.id.image_title);
@@ -40,22 +56,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         text_blakborad = (TextView) findViewById(R.id.text_blackboard);
         text_show = (TextView) findViewById(R.id.text_show);
         appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
-        View headerView=  navigationView.inflateHeaderView(R.layout.navigation_header);
+        View headerView = navigationView.inflateHeaderView(R.layout.navigation_header);
 
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 //到底部时会触发
-                if (verticalOffset == 0){
+                if (verticalOffset == 0) {
                     text_show.setVisibility(View.VISIBLE);
                     text_blakborad.setVisibility(View.GONE);
                 }
-                if (verticalOffset>100){
+                if (verticalOffset > 100) {
                     text_show.setVisibility(View.GONE);
                 }
                 //到顶部位置附近会触发
-                if (Math.abs(verticalOffset)>=(appBarLayout.getTotalScrollRange()-500)){
-                    Log.e("--------------","hbbbbbbbbbb");
+                if (Math.abs(verticalOffset) >= (appBarLayout.getTotalScrollRange() - 500)) {
+                    Log.e("--------------", "hbbbbbbbbbb");
                     text_show.setVisibility(View.GONE);
                     text_blakborad.setVisibility(View.VISIBLE);
                 }
@@ -64,9 +80,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.slide_item1:
-                        Intent intent = new Intent(getApplicationContext(),CheckActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), CheckActivity.class);
                         startActivity(intent);
                     default:
                         break;
@@ -75,18 +91,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
+    private void setData() {
+        if (from ==FROM_ADD){
+            text_blakborad.setText(nData.getContent());
+        }
+    }
+
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.add_text:
-                Intent intent = new Intent(this,AddActivity.class);
+                Intent intent = new Intent(this, AddActivity.class);
                 startActivity(intent);
                 break;
             case R.id.check_text:
-                Intent intent1 = new Intent(this,CheckActivity.class);
+                Intent intent1 = new Intent(this, CheckActivity.class);
                 startActivity(intent1);
             default:
                 break;
         }
     }
+
+
 }
