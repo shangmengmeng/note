@@ -82,6 +82,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                     intent.putExtra("AddActivity",mData);
                     Log.e("-----------",mData.toString());
                     startActivity(intent);
+                    finish();
                 }
 
         }
