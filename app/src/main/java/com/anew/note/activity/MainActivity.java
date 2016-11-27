@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.slide_item1:
-                        Intent intent = new Intent(getApplicationContext(), CheckActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), TestActivity.class);
                         startActivity(intent);
                     default:
                         break;

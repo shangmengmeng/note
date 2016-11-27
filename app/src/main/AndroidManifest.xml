@@ -17,7 +17,8 @@
         </activity>
         <activity android:name=".activity.AddActivity" />
         <activity android:name=".activity.ShowActivity" />
-        <activity android:name=".activity.CheckActivity"></activity>
+        <activity android:name=".activity.CheckActivity" />
+        <activity android:name=".activity.TestActivity"></activity>
     </application>
 
 </manifest>
