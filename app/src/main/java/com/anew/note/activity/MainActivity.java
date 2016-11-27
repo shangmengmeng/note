@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.check_text:
-                Intent intent1 = new Intent(this, CheckActivity.class);
+                Intent intent1 = new Intent(this, ShowActivity.class);
                 startActivity(intent1);
             default:
                 break;
