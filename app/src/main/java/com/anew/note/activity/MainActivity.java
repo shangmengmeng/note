@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.anew.note.R;
+import com.anew.note.model.SecModel;
 import com.anew.note.model.TipModel;
 import com.anew.note.utils.SPUtils;
 
@@ -115,6 +116,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (SPUtils.getInstance(this).getObject("list")==null){
             ArrayList<TipModel> model = new ArrayList<TipModel>();
             SPUtils.getInstance(this).putObject("list",model);
+        }
+        if (SPUtils.getInstance(this).getObject("slist")==null){
+            ArrayList<SecModel> smodel = new ArrayList<>();
+            SPUtils.getInstance(this).putObject("slist",smodel);
         }
     }
 

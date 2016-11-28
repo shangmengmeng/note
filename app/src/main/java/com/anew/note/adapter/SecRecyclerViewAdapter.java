@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.anew.note.R;
-import com.anew.note.model.SecrModel;
+import com.anew.note.model.SecModel;
 
 import java.util.ArrayList;
 
@@ -18,8 +18,8 @@ import java.util.ArrayList;
 
 public class SecRecyclerViewAdapter extends RecyclerView.Adapter<SecRecyclerViewAdapter.SecViewHolder>{
     private Context context;
-    private ArrayList<SecrModel> list;
-    public SecRecyclerViewAdapter(Context context,ArrayList<SecrModel> list){
+    private ArrayList<SecModel> list;
+    public SecRecyclerViewAdapter(Context context,ArrayList<SecModel> list){
         this.context = context;
         this.list = list;
     }

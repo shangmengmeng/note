@@ -8,7 +8,7 @@ import android.util.Log;
 
 import com.anew.note.R;
 import com.anew.note.adapter.SecRecyclerViewAdapter;
-import com.anew.note.model.SecrModel;
+import com.anew.note.model.SecModel;
 
 import com.anew.note.utils.SPUtils;
 
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class SecretNoteListActivity extends AppCompatActivity {
     private RecyclerView rcSecList;
-    private ArrayList<SecrModel> mSecrList;
+    private ArrayList<SecModel> mSecrList;
     private SecRecyclerViewAdapter secAdapter;
 
     @Override
@@ -35,7 +35,7 @@ public class SecretNoteListActivity extends AppCompatActivity {
         rcSecList.setLayoutManager(ly);
     }
     private void getData(){
-        ArrayList<SecrModel> model22= (ArrayList<SecrModel>) SPUtils.getInstance(getApplicationContext()).getObject("list");
+        ArrayList<SecModel> model22= (ArrayList<SecModel>) SPUtils.getInstance(getApplicationContext()).getObject("list");
         Log.e("----------++++++---",model22.toString());
         mSecrList = model22;
     }
