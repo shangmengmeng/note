@@ -8,30 +8,16 @@ import java.util.ArrayList;
  */
 
 public class TipsModel implements Serializable {
-    private int id;
-    private ArrayList<TipModel>list;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private    ArrayList<TipModel>list;
 
     public ArrayList<TipModel> getList() {
+        if (list ==null){
+            list = new ArrayList<>();
+        }
         return list;
     }
 
     public void setList(ArrayList<TipModel> list) {
         this.list = list;
-    }
-
-    @Override
-    public String toString() {
-        return "TipsModel{" +
-                "id=" + id +
-                ", list=" + list +
-                '}';
     }
 }

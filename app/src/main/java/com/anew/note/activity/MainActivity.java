@@ -16,6 +16,10 @@ import android.widget.Toast;
 
 import com.anew.note.R;
 import com.anew.note.model.TipModel;
+import com.anew.note.model.TipsModel;
+import com.anew.note.utils.SPUtils;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private CollapsingToolbarLayout collapsingToolbarLayout;
@@ -82,8 +86,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.slide_item1:
-                        Intent intent = new Intent(getApplicationContext(), TestActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), CheckActivity.class);
                         startActivity(intent);
+                        break;
+                    case R.id.slide_item2:
+                        Intent intent1 = new Intent(getApplicationContext(),AddSecritActivity.class);
+                        startActivity(intent1);
+                        break;
                     default:
                         break;
                 }
@@ -94,6 +103,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setData() {
         if (from ==FROM_ADD){
             text_blakborad.setText(nData.getContent());
+        }
+
+
+        if (SPUtils.getInstance(this).getObject("list")==null){
+            ArrayList<TipModel> model = new ArrayList<TipModel>();
+            SPUtils.getInstance(this).putObject("list",model);
         }
     }
 

@@ -1,6 +1,9 @@
 package com.anew.note.activity;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,17 +19,28 @@ import android.widget.Toast;
 
 import com.anew.note.R;
 import com.anew.note.model.TipModel;
+import com.anew.note.model.TipsModel;
+import com.anew.note.utils.Constant;
+import com.anew.note.utils.DbManager;
+import com.anew.note.utils.MySqliteHelper;
+import com.anew.note.utils.SPUtils;
 import com.anew.note.utils.TimeUtils;
+
+import java.util.ArrayList;
 
 public class AddActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText edit_add;
     private TextView text_number,text_date;
     private TipModel mData = new TipModel();
     private Button button_summit;
+
+    private MySqliteHelper helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
+        //获得数据库帮助类对象
+        helper= DbManager.getInstance(this);
         initView();
         setData();
         edit_add.addTextChangedListener(new TextWatcher() {
@@ -73,6 +87,30 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                 }
                 else {
                     long time = TimeUtils.getUnixStamp();
+
+//                    SQLiteDatabase db = helper.getWritableDatabase();
+//                    ContentValues values = new ContentValues();
+//                    values.put(Constant.CONTENT,edit_add.getText().toString());
+//                    values.put(Constant.DATE,text_date.getText().toString());
+//                    long result = db.insert(Constant.TABLE_NAME,null,values);
+//                    if(result>0){
+//                        Toast.makeText(AddActivity.this,"成功插入数据",Toast.LENGTH_LONG).show();
+//                    }else {
+//                        Toast.makeText(AddActivity.this,"插入数据失败",Toast.LENGTH_SHORT).show();
+//                    }
+//                    Cursor cursor = db.query(Constant.TABLE_NAME,null,null,null,null,null,null);
+//                    if(cursor.moveToFirst()){
+//                        do{
+//                            String content = cursor.getString(cursor.getColumnIndex("content"));
+//                            String date= cursor.getString(cursor.getColumnIndex("date"));
+//                            Log.e("ShowActivity","note content is" + content);
+//                            Log.e("ShowActivity","note data is" + date);
+//
+//                        }while(cursor.moveToNext());
+//                    }
+//                    cursor.close();
+//                    db.close();
+
                     mData.setNumber(Integer.parseInt(text_number.getText().toString()));
                     mData.setContent(edit_add.getText().toString());
                     mData.setDate(text_date.getText().toString());
@@ -81,6 +119,12 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                     Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                     intent.putExtra("AddActivity",mData);
                     Log.e("-----------",mData.toString());
+
+                   ArrayList<TipModel> model = (ArrayList<TipModel>) SPUtils.getInstance(getApplicationContext()).getObject("list");
+                   model.add(mData);
+
+                    SPUtils.getInstance(getApplicationContext()).putObject("list",model);
+                    ArrayList<TipModel> model22= (ArrayList<TipModel>) SPUtils.getInstance(getApplicationContext()).getObject("list");
                     startActivity(intent);
                     finish();
                 }

@@ -24,7 +24,7 @@ public class MySqliteHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
       // String sql = "create table note(_id Integer primary key,content varchar(40),date varchar(40))";
-        String sql = "create table "+Constant.TABLE_NAME+"("+Constant._ID+" varchar(40) primary key,  "+Constant.CONTENT+" varchar(40), "+Constant.DATE+" varchar(40))";
+        String sql = "create table "+Constant.TABLE_NAME+"("+Constant._ID+" Integer primary key,  "+Constant.CONTENT+" varchar(40), "+Constant.DATE+" varchar(40))";
         db.execSQL(sql);
     }
 

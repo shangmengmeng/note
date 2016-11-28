@@ -18,7 +18,12 @@
         <activity android:name=".activity.AddActivity" />
         <activity android:name=".activity.ShowActivity" />
         <activity android:name=".activity.CheckActivity" />
-        <activity android:name=".activity.TestActivity"></activity>
+        <activity android:name=".activity.TestActivity" />
+        <activity
+            android:name=".activity.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activity.AddSecritActivity"></activity>
     </application>
 
 </manifest>

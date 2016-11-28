@@ -4,13 +4,67 @@
     android:id="@+id/activity_test"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   android:orientation="horizontal"
+   android:orientation="vertical"
     >
     <Button
         android:layout_width="100dp"
-        android:layout_height="400dp"
+        android:layout_height="30dp"
         android:text="创建数据库"
+        android:textColor="@color/black"
         android:onClick="creatDb"
+        />
+    <Button
+        android:id="@+id/btn_insert"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="插入数据"
+        android:textColor="@color/black"
+        android:onClick="click"
+        android:layout_marginTop="10dp"/>
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="修改数据"
+        android:textColor="@color/black"
+        android:onClick="click"
+        android:layout_marginTop="10dp"
+        />
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="删除数据"
+        android:textColor="@color/black"
+        android:onClick="click"
+        android:layout_marginTop="10dp"
+        />
+    <Button
+        android:id="@+id/btn_insertApi"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="api插入数据"
+        android:textColor="@color/black"
+        android:onClick="onClick"
+        android:layout_marginTop="10dp"
+        />
+    <Button
+        android:id="@+id/btn_updateApi"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="api修改数据"
+        android:textColor="@color/black"
+        android:onClick="onClick"
+        android:layout_marginTop="10dp"
+        />
+    <Button
+        android:id="@+id/btn_deleteApi"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="api删除数据"
+        android:textColor="@color/black"
+        android:onClick="onClick"
+        android:layout_marginTop="10dp"
         />
 
 </LinearLayout>
