@@ -8,14 +8,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.anew.note.R;
-import com.anew.note.model.ScreModel;
+import com.anew.note.model.SecrModel;
 import com.anew.note.utils.SPUtils;
 
-public class AddSecritActivity extends AppCompatActivity implements View.OnClickListener {
+public class AddSecretActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText edit_title,edit_content;
     private Button btn_sumit;
     private TextView text_date;
-    private ScreModel mData = new ScreModel();
+    private SecrModel mData = new SecrModel();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by pig on 2016/11/28.
  */
 
-public class ScreModel implements Serializable {
+public class SecrModel implements Serializable {
     private String date;
     private String title;
     private String content;
@@ -38,7 +38,7 @@ public class ScreModel implements Serializable {
     }
     @Override
     public String toString() {
-        return "ScreModel{" +
+        return "SecrModel{" +
                 "date='" + date + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +

@@ -12,11 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.anew.note.R;
 import com.anew.note.model.TipModel;
-import com.anew.note.model.TipsModel;
 import com.anew.note.utils.SPUtils;
 
 import java.util.ArrayList;
@@ -85,13 +83,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
+                    //查看
                     case R.id.slide_item1:
                         Intent intent = new Intent(getApplicationContext(), CheckActivity.class);
                         startActivity(intent);
                         break;
+                    //添加
                     case R.id.slide_item2:
-                        Intent intent1 = new Intent(getApplicationContext(),AddSecritActivity.class);
+                        Intent intent1 = new Intent(getApplicationContext(),AddSecretActivity.class);
                         startActivity(intent1);
+                        break;
+                    //我的
+                    case R.id.slide_item3:
+                        break;
+                    //关于
+                    case R.id.slide_item4:
                         break;
                     default:
                         break;
@@ -120,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.check_text:
-                Intent intent1 = new Intent(this, ShowActivity.class);
+                Intent intent1 = new Intent(this, NoteListActivity.class);
                 startActivity(intent1);
             default:
                 break;

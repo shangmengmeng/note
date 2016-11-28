@@ -19,8 +19,6 @@ import android.widget.Toast;
 
 import com.anew.note.R;
 import com.anew.note.model.TipModel;
-import com.anew.note.model.TipsModel;
-import com.anew.note.utils.Constant;
 import com.anew.note.utils.DbManager;
 import com.anew.note.utils.MySqliteHelper;
 import com.anew.note.utils.SPUtils;
@@ -103,8 +101,8 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 //                        do{
 //                            String content = cursor.getString(cursor.getColumnIndex("content"));
 //                            String date= cursor.getString(cursor.getColumnIndex("date"));
-//                            Log.e("ShowActivity","note content is" + content);
-//                            Log.e("ShowActivity","note data is" + date);
+//                            Log.e("NoteListActivity","note content is" + content);
+//                            Log.e("NoteListActivity","note data is" + date);
 //
 //                        }while(cursor.moveToNext());
 //                    }

@@ -8,13 +8,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.anew.note.R;
 import com.anew.note.model.TipModel;
+import com.anew.note.utils.SPUtils;
+
 import java.util.ArrayList;
 
 /**
  * Created by pig on 2016/11/26.
  */
 
-public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder> {
     private Context context;
     private ArrayList<TipModel>list;
 
@@ -41,7 +43,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolder> {
         return viewHolder;
     }
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
         holder.text_content.setText(list.get(position).getContent());
         holder.text_date_copy.setText(list.get(position).getDate());
 
@@ -49,7 +51,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolder> {
             @Override
             public void onClick(View v) {
                 if (mOnItemClickListener!=null){
-                    mOnItemClickListener.OnItemClick(v,position);
+                    mOnItemClickListener.OnItemClick(holder.itemView,position);
                 }
             }
         });
@@ -57,7 +59,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolder> {
             @Override
             public boolean onLongClick(View v) {
                 if (mOnItemClickListener!=null){
-                    mOnItemClickListener.OnLongItemClick(v,position);
+                    mOnItemClickListener.OnLongItemClick(holder.itemView,position);
                 }
                 return false;
             }
@@ -68,12 +70,24 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolder> {
     public int getItemCount() {
         return list.size();
     }
-}
-class MyViewHolder extends RecyclerView.ViewHolder{
-    protected TextView text_content,text_date_copy;
-    public MyViewHolder(View itemView) {
-        super(itemView);
-        text_content = (TextView) itemView.findViewById(R.id.text_content);
-        text_date_copy = (TextView) itemView.findViewById(R.id.text_date_copy);
+    //添加和删除方法
+    public void addData(int position) {
+        list.add(position, list.get(position));
+        notifyItemInserted(position);
+    }
+
+    public void removeData(int position) {
+        list.remove(position);
+
+        notifyItemRemoved(position);
+    }
+    static class  MyViewHolder extends RecyclerView.ViewHolder{
+         TextView text_content,text_date_copy;
+        public MyViewHolder(View itemView) {
+            super(itemView);
+            text_content = (TextView) itemView.findViewById(R.id.text_content);
+            text_date_copy = (TextView) itemView.findViewById(R.id.text_date_copy);
+        }
     }
 }
+

@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by pig on 2016/11/26.
  */
-
+//普通便签
 public class TipModel implements Serializable {
     protected int tip;
     protected int number;
