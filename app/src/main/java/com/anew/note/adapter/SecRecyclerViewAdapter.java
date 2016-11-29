@@ -25,7 +25,7 @@ public class SecRecyclerViewAdapter extends RecyclerView.Adapter<SecRecyclerView
     }
     @Override
     public SecViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_sec,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.grid_item,parent,false);
         SecViewHolder  viewHolder = new SecViewHolder(view);
         return viewHolder;
     }

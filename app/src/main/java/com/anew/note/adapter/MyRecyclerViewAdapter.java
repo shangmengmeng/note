@@ -51,7 +51,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             @Override
             public void onClick(View v) {
                 if (mOnItemClickListener!=null){
-                    mOnItemClickListener.OnItemClick(holder.itemView,position);
+                    mOnItemClickListener.OnItemClick(holder.itemView,holder.getLayoutPosition());
                 }
             }
         });
@@ -59,7 +59,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             @Override
             public boolean onLongClick(View v) {
                 if (mOnItemClickListener!=null){
-                    mOnItemClickListener.OnLongItemClick(holder.itemView,position);
+                    mOnItemClickListener.OnLongItemClick(holder.itemView,holder.getLayoutPosition());
                 }
                 return false;
             }
