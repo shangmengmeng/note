@@ -1,16 +1,15 @@
 package com.anew.note.activity;
 
 import android.content.Intent;
-import android.support.v4.text.TextUtilsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.anew.note.R;
 import com.anew.note.model.SecModel;
 import com.anew.note.utils.SPUtils;
@@ -57,13 +56,20 @@ public class AddSecretActivity extends AppCompatActivity implements View.OnClick
                     mData.setDate(text_date.getText().toString());
                     mData.setContent(edit_content.getText().toString());
                     mData.setTitle(edit_title.getText().toString());
-                    ArrayList<SecModel> mlist = new ArrayList<>();
+                    Log.e("-----------",mData.toString());
+                    ArrayList<SecModel> mlist = (ArrayList<SecModel>) SPUtils.getInstance(this).getObject("slist");
                     mlist.add(mData);
                     SPUtils.getInstance(this).putObject("slist",mlist);
                     Toast.makeText(this,"保存成功",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this,MainActivity.class);
                     startActivity(intent);
+                    finish();
                 }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }

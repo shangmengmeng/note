@@ -8,10 +8,12 @@ import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.anew.note.R;
 import com.anew.note.model.SecModel;
@@ -99,6 +101,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     //关于
                     case R.id.slide_item4:
+                        Intent intent2 = new Intent(getApplicationContext(),AboutActivity.class);
+                        startActivity(intent2);
                         break;
                     default:
                         break;
@@ -138,5 +142,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private long timeExit=0;
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK&&event.getAction()==KeyEvent.ACTION_DOWN){
+            if (System.currentTimeMillis()-timeExit>2000){
+                timeExit=System.currentTimeMillis();
+                Toast.makeText(getApplicationContext(),"再按一下退出", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                finish();
+                System.exit(0);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
