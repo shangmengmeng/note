@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.anew.note.views.MyNestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,12 +8,5 @@
     tools:context="com.anew.note.activity.ScrollingActivity"
     tools:showIn="@layout/activity_scrolling">
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_margin="10dp"
-        android:id="@+id/rc_list_show"
-        android:layout_width="match_parent"
-        android:layout_height="400dp">
 
-    </android.support.v7.widget.RecyclerView>
-
-</android.support.v4.widget.NestedScrollView>
+</com.anew.note.views.MyNestedScrollView>

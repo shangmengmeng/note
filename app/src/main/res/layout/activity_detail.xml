@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_add_secrit"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.anew.note.activity.AddSecretActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_show"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/text_title_detail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@mipmap/stroke_s"
+            android:gravity="center"
+            android:hint="请输入标题"
+            android:maxLength="15"
+            android:maxLines="1"
+            android:paddingTop="10dp"
+            android:textColor="#7c6f6f"
+            android:textSize="16sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="360dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_date_detail"
+                    android:layout_width="140dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:background="@mipmap/stoke_time"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="20dp"
+                    android:text="2016-1-12"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/text_content_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="380dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/stoke_ss"
+                    android:elevation="20dp"
+                    android:gravity="left"
+                    android:hint="内容在这..."
+                    android:lineSpacingExtra="10dp"
+                    android:paddingBottom="75dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="30dp"
+                    android:textColor="#7c6f6f"
+                    android:textSize="14sp" />
+                <Button
+                    android:layout_marginLeft="30dp"
+                    android:id="@+id/button_edit"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/button_selector"
+                    android:text="编辑"
+                    android:elevation="5dp"
+                    android:textColor="#7c6f6f"
+                    />
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_input"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edit_title_input"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@mipmap/stroke_s"
+            android:gravity="center_vertical"
+            android:hint="请输入标题"
+            android:maxLength="15"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:paddingEnd="20dp"
+            android:paddingLeft="20dp"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:textColor="#7c6f6f"
+            android:textSize="16sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="360dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_date_input"
+                    android:layout_width="140dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:background="@mipmap/stoke_time"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="20dp"
+                    android:text="2016-1-12"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/edit_content_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="380dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/stoke_ss"
+                    android:elevation="20dp"
+                    android:gravity="left"
+                    android:hint="内容在这..."
+                    android:lineSpacingExtra="10dp"
+                    android:paddingBottom="75dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="30dp"
+                    android:textColor="#7c6f6f"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/button_input"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_selector"
+            android:elevation="12dp"
+            android:text="保存"
+            android:textColor="@color/status_bar" />
+    </LinearLayout>
+
+
+</LinearLayout>
