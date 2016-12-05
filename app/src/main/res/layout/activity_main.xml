@@ -63,7 +63,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="65dp"
                     android:layout_marginTop="120dp"
-                    android:text="隐藏的笨笨妞"
+                    android:text="小签在这里"
                     android:textColor="@color/white"
                     android:textSize="18dp"
                     android:maxLines="3"
@@ -71,6 +71,7 @@
                     android:visibility="gone" />
 
                 <TextView
+                    android:gravity="center"
                     android:id="@+id/text_show"
                     android:layout_width="200dp"
                     android:layout_height="80dp"
@@ -80,7 +81,8 @@
                     android:layout_marginTop="50dp"
                     android:padding="10dp"
                     android:maxLines="2"
-                    android:text="~什么都没有写``"
+                    android:text="欢迎来到小签\n请上滑~"
+                    android:lineSpacingExtra="5dp"
                     android:textColor="@color/white"
                     android:textSize="22dp"
                     android:background="@drawable/text_selector"

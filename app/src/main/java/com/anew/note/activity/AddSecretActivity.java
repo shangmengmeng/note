@@ -1,6 +1,8 @@
 package com.anew.note.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -70,6 +72,27 @@ public class AddSecretActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onBackPressed() {
-        finish();
+        if (!TextUtils.isEmpty(edit_title.getText())){
+            final AlertDialog alertDialog = new AlertDialog.Builder(this)
+                    .setTitle("温馨提示")
+                    .setMessage("日记没有保存，确定退出？")
+                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    }).create();
+            alertDialog.show();
+        }else {
+            finish();
+        }
+
     }
 }

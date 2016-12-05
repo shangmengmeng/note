@@ -98,4 +98,9 @@ public class NoteListActivity extends AppCompatActivity implements View.OnClickL
                 break;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }

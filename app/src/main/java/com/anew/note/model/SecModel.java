@@ -11,8 +11,6 @@ public class SecModel implements Serializable {
     private String title;
     private String content;
 
-
-
     public String getDate() {
         return date;
     }

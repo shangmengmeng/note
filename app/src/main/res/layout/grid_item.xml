@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="140dp"
     android:layout_height="130dp"
-    android:layout_margin="10dp"
+    android:layout_margin="20dp"
     android:layout_marginBottom="10dp"
     android:background="@color/Cb3b3b3"
     android:orientation="vertical"
@@ -16,15 +16,16 @@
         android:orientation="vertical">
 
         <TextView
+            android:layout_marginTop="15dp"
             android:id="@+id/text_title_item"
-            android:layout_width="70dp"
+            android:layout_width="130dp"
             android:layout_height="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
             android:gravity="center_vertical"
-            android:maxLength="7"
+            android:maxLength="10"
             android:text="我是主题"
-            android:textColor="@color/C1b1b1b"
+            android:textColor="#174a22"
             android:textSize="12sp" />
 
         <RelativeLayout
@@ -36,11 +37,13 @@
                 android:layout_width="140dp"
                 android:layout_height="70dp"
                 android:lineSpacingExtra="6dp"
-                android:maxLength="20"
-                android:maxLines="2"
-                android:padding="10dp"
+                android:maxLength="40"
+                android:maxLines="4"
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:text="2012-2-2"
-                android:textColor="@color/C1b1b1b"
+                android:textColor="@color/blue_words"
                 android:textSize="10sp" />
 
             <TextView
@@ -49,11 +52,11 @@
                 android:layout_height="30dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginRight="5dp"
                 android:gravity="center"
                 android:text="2012-2-2"
-                android:textColor="@color/C1b1b1b"
+                android:textColor="@color/blue_words"
                 android:textSize="10sp" />
         </RelativeLayout>
     </LinearLayout>

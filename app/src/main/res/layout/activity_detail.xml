@@ -32,11 +32,11 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="420dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="360dp"
+                android:layout_height="380dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -55,7 +55,7 @@
                 <TextView
                     android:id="@+id/text_content_detail"
                     android:layout_width="match_parent"
-                    android:layout_height="380dp"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:background="@mipmap/stoke_ss"
@@ -63,25 +63,27 @@
                     android:gravity="left"
                     android:hint="内容在这..."
                     android:lineSpacingExtra="10dp"
-                    android:paddingBottom="75dp"
+                    android:paddingBottom="240dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="30dp"
                     android:textColor="#7c6f6f"
                     android:textSize="14sp" />
-                <Button
-                    android:layout_marginLeft="30dp"
-                    android:id="@+id/button_edit"
-                    android:layout_width="60dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/button_selector"
-                    android:text="编辑"
-                    android:elevation="5dp"
-                    android:textColor="#7c6f6f"
-                    />
+
             </LinearLayout>
 
         </ScrollView>
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/button_edit"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button_selector"
+            android:text="编辑"
+            android:elevation="5dp"
+            android:textColor="#7c6f6f"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -100,9 +102,8 @@
             android:background="@mipmap/stroke_s"
             android:gravity="center_vertical"
             android:hint="请输入标题"
-            android:maxLength="15"
+            android:maxLength="13"
             android:maxLines="1"
-            android:padding="5dp"
             android:paddingEnd="20dp"
             android:paddingLeft="20dp"
             android:paddingStart="20dp"
@@ -156,6 +157,7 @@
             android:id="@+id/button_input"
             android:layout_width="120dp"
             android:layout_height="40dp"
+            android:layout_marginTop="5dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="20dp"
             android:background="@drawable/button_selector"

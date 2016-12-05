@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -36,6 +37,8 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
         text_title = (TextView) findViewById(R.id.text_title_detail);
         text_content = (TextView) findViewById(R.id.text_content_detail);
         text_date = (TextView) findViewById(R.id.text_date_detail);
@@ -80,6 +83,7 @@ public class DetailActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),ScrollingActivity.class);
                 intent.putExtra("from","DetailActivity");
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -93,6 +97,8 @@ public class DetailActivity extends AppCompatActivity {
                     .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(getApplicationContext(),ScrollingActivity.class);
+                            startActivity(intent);
                             finish();
                         }
                     })
@@ -103,16 +109,11 @@ public class DetailActivity extends AppCompatActivity {
                     }).create();
             alertDialog.show();
         }else {
+            Intent intent  = new Intent(this,ScrollingActivity.class);
+            startActivity(intent);
             finish();
         }
 
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0){
-
-        }
-        return super.onKeyDown(keyCode, event);
-    }
 }

@@ -44,16 +44,16 @@ public class MyScrRecyclerAdapter extends RecyclerView.Adapter<MyScrRecyclerAdap
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        if (mlist.get(position).getTitle().length()>6){
-            String a =mlist.get(position).getTitle().substring(0,6);
-            holder.text_title.setText(a+"...");
+        if (mlist.get(position).getTitle().length()>5){
+            String a =mlist.get(position).getTitle().substring(0,5);
+            holder.text_title.setText(a+context.getResources().getString(R.string.text_shenglvehao));
         }else {
             String a =mlist.get(position).getTitle();
             holder.text_title.setText(a);
         }
-       if (mlist.get(position).getContent().length()>20){
-           String b =mlist.get(position).getContent().substring(0,20);
-           holder.text_content.setText(b+"...");
+       if (mlist.get(position).getContent().length()>37){
+           String b =mlist.get(position).getContent().substring(0,37);
+           holder.text_content.setText(b+context.getResources().getString(R.string.text_shenglvehao));
        }
         else {
            String b =mlist.get(position).getContent();

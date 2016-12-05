@@ -53,6 +53,7 @@
             android:configChanges="orientation|screenSize|keyboard"
             android:screenOrientation="portrait"
         </activity>
+        <activity android:name=".activity.UserCenterActivity"></activity>
     </application>
 
 </manifest>

@@ -1,12 +1,16 @@
 package com.anew.note.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -14,16 +18,21 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.anew.note.R;
 import com.anew.note.model.SecModel;
 import com.anew.note.model.TipModel;
+import com.anew.note.utils.JudgeUtils;
 import com.anew.note.utils.SPUtils;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private CollapsingToolbarLayout collapsingToolbarLayout;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+    private DrawerLayout drawerLayout;
     private ImageView imageView;
     private AppBarLayout appBarLayout;
     private TextView text_blakborad, text_show, text_add, text_check;
@@ -40,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView();
         setData();
     }
-
 
 
     public void getData() {
@@ -61,7 +69,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         text_blakborad = (TextView) findViewById(R.id.text_blackboard);
         text_show = (TextView) findViewById(R.id.text_show);
         appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
+        //侧滑插入布局
         View headerView = navigationView.inflateHeaderView(R.layout.navigation_header);
+        //修改图片
+
+        CircleImageView profile_image = (CircleImageView)headerView.findViewById(R.id.profile_image);
+        if (SPUtils.getInstance(this).getStringValue("image")!=null){
+            String path =SPUtils.getInstance(this).getStringValue("image");
+            Glide.with(this)
+                    .load(path)
+                    .into(profile_image);
+        }
+
+
+
+        drawerLayout = (DrawerLayout) findViewById(R.id.activity_main);
+
+        //标题栏的设置
+        //设置toolBar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("小签");
+        setSupportActionBar(toolbar);
+        //设置返回键
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //设置点击拉出侧滑
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.drawer_open,
+                R.string.drawer_close);
+        actionBarDrawerToggle.syncState();
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+
+        //设置伸缩栏
+        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.ctool);
+        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.Cbbc9a));
+        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
+
 
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
@@ -86,10 +127,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    //查看
+                    //查看判断是否输入密码
                     case R.id.slide_item1:
-                        Intent intent = new Intent(getApplicationContext(), CheckActivity.class);
-                        startActivity(intent);
+                        if (JudgeUtils.getIntence(getApplicationContext()).isPass()){
+                            Intent intent = new Intent(getApplicationContext(), ScrollingActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                        else {
+                            Intent intent = new Intent(getApplicationContext(), CheckActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+
                         break;
                     //添加
                     case R.id.slide_item2:
@@ -98,6 +148,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     //我的
                     case R.id.slide_item3:
+                        Intent intent3 = new Intent(getApplicationContext(), UserCenterActivity.class);
+                        startActivity(intent3);
+                        finish();
                         break;
                     //关于
                     case R.id.slide_item4:
@@ -133,6 +186,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.add_text:
                 Intent intent = new Intent(this, AddActivity.class);
                 startActivity(intent);
+                finish();
                 break;
             case R.id.check_text:
                 Intent intent1 = new Intent(this, NoteListActivity.class);
@@ -152,11 +206,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(),"再按一下退出", Toast.LENGTH_SHORT).show();
             }
             else {
-                finish();
                 System.exit(0);
             }
             return true;
+        }else {
+            return super.onKeyDown(keyCode, event);
         }
-        return super.onKeyDown(keyCode, event);
+
     }
 }

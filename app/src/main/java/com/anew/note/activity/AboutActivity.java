@@ -17,4 +17,9 @@ public class AboutActivity extends AppCompatActivity {
         String a = AppUtils.getVersionName(this);
         text_about.setText("版本号："+ a);
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }

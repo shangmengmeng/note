@@ -80,7 +80,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         switch(v.getId()){
             case R.id.button_summit:
                 if (TextUtils.isEmpty(edit_add.getText())){
-                    Toast.makeText(getApplicationContext(),"baocun",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"输入不能为空",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 else {
@@ -113,7 +113,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                     mData.setContent(edit_add.getText().toString());
                     mData.setDate(text_date.getText().toString());
                     mData.setTip((int) time);
-                    Toast.makeText(getApplicationContext(),"baocun",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"保存成功",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                     intent.putExtra("AddActivity",mData);
                     Log.e("-----------",mData.toString());
@@ -128,5 +128,12 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                 }
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
