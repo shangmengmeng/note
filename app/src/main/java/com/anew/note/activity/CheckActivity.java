@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.anew.note.R;
@@ -16,11 +17,13 @@ public class CheckActivity extends AppCompatActivity {
     private boolean isFirst = true;
     private TextView text_input;
     private Button button_input;
+    private ImageView a;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_check);
+
         text_input = (TextView) findViewById(R.id.text_input);
         button_input = (Button) findViewById(R.id.button_sec);
         if (SPUtils.getInstance(getApplicationContext()).getStringValue("isFist") == null) {
