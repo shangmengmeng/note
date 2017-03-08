@@ -39,4 +39,10 @@ public class SecretNoteListActivity extends AppCompatActivity {
         Log.e("----------++++++---",model22.toString());
         mSecrList = model22;
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

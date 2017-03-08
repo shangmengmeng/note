@@ -16,6 +16,8 @@ public class AboutActivity extends AppCompatActivity {
         text_about = (TextView) findViewById(R.id.text_about);
         String a = AppUtils.getVersionName(this);
         text_about.setText("版本号："+ a);
+
+
     }
 
     @Override

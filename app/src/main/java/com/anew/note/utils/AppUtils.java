@@ -1,5 +1,6 @@
 package com.anew.note.utils;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.ComponentName;
@@ -8,6 +9,8 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 
 import java.io.File;
 import java.util.List;
@@ -144,5 +147,26 @@ public class AppUtils {
             }
         }
         return false;
+    }
+    /**
+     * 解决安卓6.0以上版本不能读取外部存储权限的问题
+     * @param activity
+     * @return
+     */
+    public static boolean isGrantExternalRW(Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && activity.checkSelfPermission(
+                Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(activity,new String[]{
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.READ_PHONE_STATE
+            }, 1);
+            return false;
+        }
+
+        return true;
     }
 }

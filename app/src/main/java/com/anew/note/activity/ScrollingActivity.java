@@ -19,6 +19,9 @@ import com.anew.note.views.FullyGridLayoutManager;
 
 import java.util.ArrayList;
 
+/**
+ * 私密日志的列表
+ */
 public class ScrollingActivity extends AppCompatActivity {
     private RecyclerView rec_list;
     private ArrayList<SecModel>mlist;
@@ -59,6 +62,7 @@ public class ScrollingActivity extends AppCompatActivity {
                     intent.putExtra("position",position);
                     intent.putExtra("model",mlist);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
                     finish();
                 }
 

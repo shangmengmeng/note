@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 //普通便签
 public class TipModel implements Serializable {
+
     protected int tip;
     protected int number;
     protected String date;

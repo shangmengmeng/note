@@ -50,16 +50,18 @@ public class AddSecretActivity extends AppCompatActivity implements View.OnClick
             case R.id.btn_sumit:
                 if (TextUtils.isEmpty(edit_title.getText())){
                     Toast.makeText(this,"请输入标题",Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if (TextUtils.isEmpty(edit_content.getText())){
                     Toast.makeText(this,"请输入内容",Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 else {
                     mData.setDate(text_date.getText().toString());
                     mData.setContent(edit_content.getText().toString());
                     mData.setTitle(edit_title.getText().toString());
                     Log.e("-----------",mData.toString());
-                    ArrayList<SecModel> mlist = (ArrayList<SecModel>) SPUtils.getInstance(this).getObject("slist");
+                    ArrayList<SecModel> mlist = (ArrayList<SecModel>) SPUtils.getInstance(getApplicationContext()).getObject("slist");
                     mlist.add(mData);
                     SPUtils.getInstance(this).putObject("slist",mlist);
                     Toast.makeText(this,"保存成功",Toast.LENGTH_SHORT).show();
