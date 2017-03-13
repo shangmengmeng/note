@@ -102,18 +102,21 @@ public class SplashLayout extends RelativeLayout {
 
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(imageView, "scaleX", 0.2f, 0.7f);
         scaleX.setRepeatCount(2);
+        scaleX.setDuration(5000);
         ObjectAnimator scaleY = ObjectAnimator.ofFloat(imageView, "scaleY", 0.2f, 0.7f);
         scaleY.setRepeatCount(2);
+        scaleY.setDuration(5000);
         ObjectAnimator alpha = ObjectAnimator.ofFloat(imageView, "alpha", 1f, 0.3f);
         alpha.setRepeatCount(2);
+        alpha.setDuration(5000);
         //贝塞尔曲线动画
         ValueAnimator baser = getBaserAnimator(imageView);
         baser.setRepeatCount(2);
+        baser.setDuration(5000);
 
 
         //动画集合
         AnimatorSet set = new AnimatorSet();
-        set.setDuration(3000);
         set.playTogether(scaleX, scaleY, alpha, baser);
         return set;
     }

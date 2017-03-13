@@ -4,7 +4,7 @@
     android:id="@+id/activity_splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/show_bc"
+    android:background="@drawable/sp_bc"
     tools:context="com.anew.note.activity.SplashActivity">
     <com.anew.note.views.SplashLayout
         android:id="@+id/splashLayout"
