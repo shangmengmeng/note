@@ -27,7 +27,7 @@ public class CheckActivity extends AppCompatActivity {
         text_input = (TextView) findViewById(R.id.text_input);
         button_input = (Button) findViewById(R.id.button_sec);
         if (SPUtils.getInstance(getApplicationContext()).getStringValue("isFist") == null) {
-            text_input.setHint("欢迎来到私密空间，请输入4位数字“1.2.3”密码");
+           // text_input.setHint("Input 4 digits..");
             button_input.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -40,15 +40,14 @@ public class CheckActivity extends AppCompatActivity {
                         finish();
                     }
                     else {
-                        Toast.makeText(getApplicationContext(),"请输入4位数字",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Please enter 4 digits",Toast.LENGTH_SHORT).show();
                         return;
                     }
                 }
             });
         }
         else {
-            text_input.setHint("请输入4位数字“1.2.3”密码");
-            button_input.setText("确定");
+            button_input.setText("Confirm");
             button_input.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -64,7 +63,7 @@ public class CheckActivity extends AppCompatActivity {
                     }
                     if (!a.equals(SPUtils.getInstance(getApplicationContext())
                             .getStringValue("note"))) {
-                      Toast.makeText(getApplicationContext(),"密码错误，请重新输入",Toast.LENGTH_SHORT).show();
+                      Toast.makeText(getApplicationContext(), R.string.input_hint_erro,Toast.LENGTH_SHORT).show();
                     }
                 }
             });

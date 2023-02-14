@@ -19,9 +19,12 @@ import com.anew.note.utils.TimeUtils;
 
 import java.util.ArrayList;
 
+/**
+ * @author sam
+ */
 public class AddSecretActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText edit_title,edit_content;
-    private Button btn_sumit;
+    private Button btn_submit;
     private TextView text_date;
     private SecModel mData = new SecModel();
     @Override
@@ -37,8 +40,8 @@ public class AddSecretActivity extends AppCompatActivity implements View.OnClick
         edit_content = (EditText) findViewById(R.id.edit_content);
 
         text_date = (TextView) findViewById(R.id.text_date_sec);
-        btn_sumit = (Button) findViewById(R.id.btn_sumit);
-        btn_sumit.setOnClickListener(this);
+        btn_submit = (Button) findViewById(R.id.btn_sumit);
+        btn_submit.setOnClickListener(this);
     }
     private void setData() {
         text_date.setText(TimeUtils.getTodayDate());
@@ -69,6 +72,8 @@ public class AddSecretActivity extends AppCompatActivity implements View.OnClick
                     startActivity(intent);
                     finish();
                 }
+            default:
+                break;
         }
     }
 

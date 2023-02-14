@@ -42,6 +42,7 @@
                         android:orientation="horizontal"
                         >
                         <LinearLayout
+                            android:visibility="gone"
                             android:layout_width="wrap_content"
                             android:layout_height="50dp"
                             android:orientation="horizontal"
@@ -55,6 +56,7 @@
                                 />
 
                             <TextView
+
                                 android:id="@+id/city"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -67,6 +69,7 @@
                                 />
                         </LinearLayout>
                         <LinearLayout
+                            android:visibility="gone"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_marginTop="20dp"
@@ -132,7 +135,7 @@
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="600dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <RelativeLayout
@@ -147,7 +150,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="65dp"
                     android:layout_marginTop="120dp"
-                    android:text="小签在这里"
+                    android:text="@string/home_notification"
                     android:textColor="@color/white"
                     android:textSize="18dp"
                     android:maxLines="3"
@@ -165,7 +168,7 @@
                     android:layout_marginTop="50dp"
                     android:padding="10dp"
                     android:maxLines="2"
-                    android:text="欢迎来到小签\n请上滑~"
+                    android:text="@string/home_welcome"
                     android:lineSpacingExtra="5dp"
                     android:textColor="@color/white"
                     android:textSize="22dp"
@@ -175,25 +178,36 @@
                     />
 
                 <TextView
+                    android:layout_centerHorizontal="true"
                     android:id="@+id/add_text"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="30dp"
                     android:layout_alignParentTop="true"
-                    android:layout_marginRight="60dp"
-                    android:layout_marginTop="400dp"
+                    android:layout_marginTop="530dp"
+                    android:layout_marginRight="80dp"
                     android:background="@mipmap/addto"
-                    android:elevation="12dp"
+                    android:elevation="12dp" />
 
-                    />
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/add_text"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp"
+                    android:text="Add"
+                    android:textColor="@color/white"
+                    android:textSize="22dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:id="@+id/check_text"
-                    android:layout_width="60dp"
-                    android:layout_height="55dp"
-                    android:layout_marginLeft="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="30dp"
                     android:layout_marginTop="400dp"
                     android:background="@mipmap/check"
-                    android:backgroundTintMode="add"
+
                     android:elevation="20dp" />
             </RelativeLayout>
 

@@ -22,7 +22,18 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Enter secret code"
+                android:textColor="#333"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
             <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_marginTop="35dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -30,7 +41,7 @@
                     android:id="@+id/text_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="请输入密码"
+                    android:hint="Enter the secret code(4 digits)"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:maxLength="4"
@@ -39,12 +50,16 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                android:layout_width="220dp"
                 android:id="@+id/button_sec"
+                android:layout_gravity="center_horizontal"
                 style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
+                android:layout_marginTop="26dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="确         定"
+                android:background="@drawable/button_selector"
+                android:text="Confirm"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
 
         </LinearLayout>

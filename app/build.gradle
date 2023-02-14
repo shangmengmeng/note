@@ -3,21 +3,47 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.anew.note"
         minSdkVersion 19
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
     }
 
-    buildTypes {
+    signingConfigs {
+        debug {
+            storeFile file('note.jks')
+            keyAlias 'note'
+            keyPassword '123456'
+            storePassword '123456'
+        }
         release {
+            storeFile file('note.jks')
+            keyAlias 'note'
+            keyPassword '123456'
+            storePassword '123456'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+    buildTypes {
+        debug {
             minifyEnabled false
+            shrinkResources false
+            debuggable true
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            debuggable true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -35,9 +61,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.lzy.widget:imagepicker:0.3.2'
-    implementation files('libs/MobCommons-2016.1222.1756.jar')
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation files('libs/BaiduLBS_Android.jar')
     implementation 'com.yanzhenjie:permission:1.0.5'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import androidx.annotation.NonNull;
 
+import com.anew.note.utils.TimeUtils;
 import com.bumptech.glide.load.Option;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.appbar.AppBarLayout;
@@ -35,8 +36,6 @@ import com.anew.note.network.WeatherModel;
 import com.anew.note.utils.AppUtils;
 import com.anew.note.utils.JudgeUtils;
 import com.anew.note.utils.SPUtils;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -58,8 +57,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TipModel nData;
     private int from;
     private final static int FROM_ADD = 1;
-    public LocationClient mLocationClient = null;
-    public BDLocationListener myListener;
     private String  cityText_Location,cityText_weather;
 
     private String code;
@@ -139,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //标题栏的设置
         //设置toolBar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("小签");
+        toolbar.setTitle(getString(R.string.home_title));
         setSupportActionBar(toolbar);
 
 
@@ -222,31 +219,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
 
                         break;
-                    //添加
+                    //添加私密
                     case R.id.slide_item2:
-                        Intent intent1 = new Intent(getApplicationContext(), AddSecretActivity.class);
-                        startActivity(intent1);
+                        Intent intent2 = new Intent(getApplicationContext(), AddSecretActivity.class);
+                        startActivity(intent2);
 
                         break;
-                    //我的
+                    //添加普通
                     case R.id.slide_item3:
-                        Intent intent3 = new Intent(getApplicationContext(), UserCenterActivity.class);
+                        Intent intent3 = new Intent(getApplicationContext(), AddActivity.class);
                         startActivity(intent3);
 
                         break;
-                    //关于
+                  //我的
                     case R.id.slide_item4:
-                        Intent intent2 = new Intent(getApplicationContext(), AboutActivity.class);
-                        startActivity(intent2);
+                        Intent intent4 = new Intent(getApplicationContext(), UserCenterActivity.class);
+                        startActivity(intent4);
                         break;
-                    //定位
+                    //关于
                     case R.id.slide_item5:
-                        if (!AppUtils.isGrantExternalRW(MainActivity.this)){
-                            Toast.makeText(getApplicationContext(),"请手动开权限",Toast.LENGTH_SHORT).show();
-                        }else {
-                            Intent intent4 = new Intent(getApplicationContext(), MapActivity.class);
-                            startActivity(intent4);
-                        }
+                        Intent intent5 = new Intent(getApplicationContext(), AboutActivity.class);
+                        startActivity(intent5);
 
                         break;
 
@@ -265,6 +258,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if (SPUtils.getInstance(this).getObject("list") == null) {
             ArrayList<TipModel> model = new ArrayList<TipModel>();
+            TipModel tipModel = new TipModel();
+            tipModel.setNumber(12);
+            tipModel.setContent("Hello,I am here ..");
+            tipModel.setDate(TimeUtils.getTodayDate());
+            tipModel.setTip(TimeUtils.getUnixStamp());
+            model.add(tipModel);
             SPUtils.getInstance(this).putObject("list", model);
         }
         if (SPUtils.getInstance(this).getObject("slist") == null) {
@@ -273,9 +272,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (cityText_Location == null){
-            cityText_Location = "北京市";
+            cityText_Location = "NewYork";
         }
-        city.setText(cityText_Location);
+       /* city.setText(cityText_Location);
         cityText_weather = cityText_Location.substring(0, cityText_Location.length() - 1);
         Log.e("+++++++++++",cityText_weather);
         String key = "606f03bb96be4f48987a5e8582b49fa1";
@@ -329,7 +328,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(), "成功", Toast.LENGTH_SHORT).show();
             }
         });
-
+*/
     }
 
     @Override

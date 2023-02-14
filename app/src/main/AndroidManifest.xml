@@ -2,32 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.anew.note">
 
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <!-- //第三方分享 -->
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <!-- 百度地图 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
 
     <application
         android:name=".app.MyApplycation"
@@ -37,16 +21,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!-- 百度地图秘钥 -->
-        <meta-data
-            android:name="com.baidu.lbsapi.API_KEY"
-            android:value="Gtfb75O0NuYKZnPatgjZqpozOBFf8ARr" />
-
-
         <activity
             android:name=".activity.SplashActivity"
             android:theme="@style/AppTheme1"
             android:configChanges="orientation|screenSize|keyboard"
+            android:exported="true"
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,91 +34,68 @@
             </intent-filter>
         </activity>
         <activity
+            android:exported="false"
             android:name=".activity.MainActivity"
             android:configChanges="orientation|screenSize|keyboard"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait" />
+            android:launchMode="singleTop"
+            android:screenOrientation="unspecified" />
         <activity
+            android:exported="false"
             android:name=".activity.AddActivity"
             android:configChanges="orientation|screenSize|keyboard"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait" />
+            android:launchMode="standard"
+            android:screenOrientation="unspecified" />
         <activity
+            android:exported="false"
             android:name=".activity.NoteListActivity"
             android:configChanges="orientation|screenSize|keyboard"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait" />
+            android:launchMode="standard"
+            android:screenOrientation="unspecified" />
         <activity
+            android:exported="false"
             android:name=".activity.CheckActivity"
             android:configChanges="orientation|screenSize|keyboard"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait" />
+            android:launchMode="standard"
+            android:screenOrientation="unspecified" />
         <activity android:name=".activity.TestActivity" />
         <activity
+            android:exported="false"
             android:name=".activity.ScrollingActivity"
             android:label="@string/title_activity_scrolling"
-            android:launchMode="singleInstance"
+            android:launchMode="standard"
             android:theme="@style/AppTheme" />
         <activity
+            android:exported="false"
             android:name=".activity.AddSecretActivity"
             android:configChanges="orientation|screenSize|keyboard"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait" />
+            android:launchMode="standard"
+            android:screenOrientation="unspecified" />
         <activity
+            android:exported="false"
             android:name=".activity.SecretNoteListActivity"
             android:configChanges="orientation|screenSize|keyboard"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait" />
+            android:launchMode="standard"
+            android:screenOrientation="unspecified" />
         <activity
+            android:exported="false"
             android:name=".activity.DetailActivity"
             android:configChanges="orientation|screenSize|keyboard"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait" />
-        <activity android:name=".activity.AboutActivity"
+            android:launchMode="standard"
+            android:screenOrientation="unspecified" />
+        <activity
+            android:name=".activity.AboutActivity"
+            android:exported="false"
             android:configChanges="orientation|screenSize|keyboard"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"/>
+            android:launchMode="standard"
+            android:screenOrientation="unspecified" />
 
-        <activity android:name=".activity.UserCenterActivity" />
         <activity
-            android:name=".activity.MapActivity"
+            android:name=".activity.UserCenterActivity"
+            android:exported="false"
             android:configChanges="orientation|screenSize|keyboard"
-            android:launchMode="singleTask">
-        </activity>
+            android:launchMode="standard"
+            android:screenOrientation="unspecified"/>
 
-        <!-- 第三方分享 -->
-        <activity
-            android:name="com.mob.tools.MobUIShell"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-
-            <!-- QQ和QQ空间分享 QQ登录的回调必须要配置的 -->
-            <intent-filter>
-                <data android:scheme="tencent1105862414" />
-
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-
-            <!-- 新浪微博客户端分享回调必须配置 -->
-            <intent-filter>
-                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <!-- 微信分享回调 -->
-        <activity
-            android:name=".wxapi.WXEntryActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
     </application>
 

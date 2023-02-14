@@ -8,17 +8,17 @@ import java.io.Serializable;
 //普通便签
 public class TipModel implements Serializable {
 
-    protected int tip;
+    protected long tip;
     protected int number;
     protected String date;
     protected String content;
 
 
-    public int getTip() {
+    public long getTip() {
         return tip;
     }
 
-    public void setTip(int tip) {
+    public void setTip(long tip) {
         this.tip = tip;
     }
 

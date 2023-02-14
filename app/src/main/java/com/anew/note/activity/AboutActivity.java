@@ -15,7 +15,7 @@ public class AboutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about);
         text_about = (TextView) findViewById(R.id.text_about);
         String a = AppUtils.getVersionName(this);
-        text_about.setText("版本号："+ a);
+        text_about.setText("Version Code："+ a);
 
 
     }

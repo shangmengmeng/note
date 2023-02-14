@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">小便签note</string>
+    <string name="app_name">Sweet Notebook</string>
+    <string name="home_title">"Notebook</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_login">Sign in</string>
@@ -20,4 +21,13 @@
 
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="home_welcome">Welcome ~Please slide up~</string>
+    <string name="home_notification">I am here</string>
+    <string name="save">Save</string>
+    <string name="input_hint_erro">Password error, please re-enter</string>
+    <string name="user_center">User Center</string>
+    <string name="avatar_modify">Modify Avatar</string>
+    <string name="nickname">Nickname:</string>
+    <string name="modify">Modify</string>
+    <string name="declaration">Declaration:</string>
 </resources>

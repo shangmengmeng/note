@@ -3,23 +3,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/slide_item1"
-            android:icon="@mipmap/ic_favorite"
-            android:title="查看"/>
+            android:icon="@mipmap/icon_eye"
+            android:title="Secret Detail"/>
         <item
             android:id="@+id/slide_item2"
-            android:icon="@mipmap/ic_favorite"
-            android:title="添加"/>
+            android:icon="@mipmap/icon_scr_add"
+            android:title="Secret diary Add"/>
         <item
             android:id="@+id/slide_item3"
-            android:icon="@mipmap/ic_favorite"
-            android:title="我的"/>
-        <item
-            android:id="@+id/slide_item5"
-            android:icon="@mipmap/ic_favorite"
-            android:title="定位"/>
+            android:icon="@mipmap/icon_add"
+            android:title="Diary"/>
         <item
             android:id="@+id/slide_item4"
-            android:icon="@mipmap/ic_favorite"
-            android:title="关于"/>
+            android:icon="@mipmap/icon_user"
+            android:title="User"/>
+        <item
+            android:id="@+id/slide_item5"
+            android:icon="@mipmap/icon_about"
+            android:title="About"/>
     </group>
 </menu>
