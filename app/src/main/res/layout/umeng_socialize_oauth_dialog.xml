@@ -30,7 +30,6 @@
                 android:scaleType="center"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
-                android:background="@drawable/umeng_socialize_back_icon"
                 android:layout_width="12dp"
 
                 android:layout_height="20dp" />
@@ -44,7 +43,6 @@
             android:layout_marginRight="10dp"
             android:id="@+id/umeng_share_btn"
             android:padding="4dp"
-            android:background="@drawable/umeng_socialize_btn_bg"
             android:textColor="#ffffff"
             />
     </RelativeLayout>

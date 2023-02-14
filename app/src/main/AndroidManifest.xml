@@ -42,10 +42,6 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="Gtfb75O0NuYKZnPatgjZqpozOBFf8ARr" />
 
-        <service
-            android:name="com.baidu.location.f"
-            android:enabled="true"
-            android:process=":remote" />
 
         <activity
             android:name=".activity.SplashActivity"
@@ -99,11 +95,11 @@
             android:configChanges="orientation|screenSize|keyboard"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.AboutActivity">
+        <activity android:name=".activity.AboutActivity"
             android:configChanges="orientation|screenSize|keyboard"
             android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-        </activity>
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".activity.UserCenterActivity" />
         <activity
             android:name=".activity.MapActivity"

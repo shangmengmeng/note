@@ -1,16 +1,12 @@
 package com.anew.note.activity;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -23,14 +19,10 @@ import com.anew.note.R;
 import com.anew.note.model.SecModel;
 import com.anew.note.utils.SPUtils;
 import com.anew.note.utils.ScreenUtil;
-import com.mob.commons.SHARESDK;
+
 
 import java.util.ArrayList;
 
-import cn.sharesdk.framework.Platform;
-import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.onekeyshare.OnekeyShare;
-import cn.sharesdk.onekeyshare.ShareContentCustomizeCallback;
 
 public class DetailActivity extends AppCompatActivity {
     private TextView text_title,text_content,text_date;
@@ -107,36 +99,7 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void showShare() {
-        ShareSDK.initSDK(this);
-        OnekeyShare oks = new OnekeyShare();
-        oks.setTitle("标题");
-        if (SPUtils.getInstance(this).getStringValue("image")!=null){
-            String path =SPUtils.getInstance(this).getStringValue("image");
-            oks.setImagePath(path);
-            Log.e("------------","hhhhh");
-        }
 
-        oks.setShareContentCustomizeCallback(new ShareContentCustomizeCallback() {
-            @Override
-            public void onShare(Platform platform, Platform.ShareParams paramsToShare) {
-                if ("QZone".equals(platform.getName())) {
-                    paramsToShare.setTitle(null);
-                    paramsToShare.setTitleUrl(null);
-                    paramsToShare.setImageData(bitmap);
-
-                    if (SPUtils.getInstance(getApplicationContext()).getStringValue("image")!=null){
-                        String path =SPUtils.getInstance(getApplication()).getStringValue("image");
-                        Log.e("------------",path);
-                        paramsToShare.setImagePath(path);
-
-                    }
-
-                }
-            }
-        });
-
-        // 启动分享GUI
-        oks.show(this);
     }
 
     @Override

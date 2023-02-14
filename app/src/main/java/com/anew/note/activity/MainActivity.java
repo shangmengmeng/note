@@ -1,18 +1,19 @@
 package com.anew.note.activity;
 
-import android.Manifest;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.ViewDragHelper;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+
+import com.bumptech.glide.load.Option;
+import com.bumptech.glide.request.RequestOptions;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.navigation.NavigationView;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -26,24 +27,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anew.note.R;
-import com.anew.note.app.MyApplycation;
 import com.anew.note.model.SecModel;
 import com.anew.note.model.TipModel;
 import com.anew.note.network.ApiWork;
-import com.anew.note.network.BaseModel;
 import com.anew.note.network.Netlistioner;
 import com.anew.note.network.WeatherModel;
 import com.anew.note.utils.AppUtils;
 import com.anew.note.utils.JudgeUtils;
 import com.anew.note.utils.SPUtils;
-import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.baidu.location.Poi;
-import com.baidu.mapapi.map.MapView;
 import com.bumptech.glide.Glide;
-import com.yanzhenjie.permission.AndPermission;
 
 import java.util.ArrayList;
 
@@ -321,9 +315,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     animation.setDuration(2000);
                     animation.start();
                 }
+
                 Glide.with(getApplicationContext())
                         .load(path)
-                        .animate(animation)
                         .into(iv_weather_icon);
 
 
